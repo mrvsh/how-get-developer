@@ -26,7 +26,12 @@ public class Index extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getOutputStream().println("khiibii hello from there!<hr>And it's work");
+		final String url = "/WEB-INF/index.jsp";
+		try {
+			request.getRequestDispatcher(url).forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
